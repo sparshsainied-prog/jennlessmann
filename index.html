@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Jenn Lessmann | Unmagical</title>
+<meta name="description" content="A homepage idea for Jenn Lessmann and Cate Corey's Unmagical Life, made by Sparsh Saini. Not the official site.">
+<meta property="og:title" content="A homepage for Jenn Lessmann, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Unmagical, where the full moon in the title wanes down to its crescent as you scroll. Not the official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/jennlessmann/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23121617'/><path d='M21 5a11 11 0 1 0 0 22a8.5 8.5 0 1 1 0-22z' fill='%23fcc052'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/plate.jpg">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Colours from the Unmagical cover: ink black, foil gold, tarot purple, eucalyptus green.
+   The other covers lend their grounds to their own rows. */
+:root {
+  --ink: #121617;
+  --ink2: #1b2022;
+  --gold: #fcc052;
+  --gold-deep: #c98a2b;
+  --rose: #f2a58a;
+  --cream: #f6efe3;
+  --mute: #b7b0a2;
+  --tarot: #7f6b94;
+  --navy: #4b4d78;
+  --leaf: #7fa073;
+  --display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --text: "Cormorant Garamond", Georgia, serif;
+  --gutter: clamp(1.1rem, 5vw, 4rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ink); color: var(--cream); font-family: var(--text); font-size: 1.3rem; line-height: 1.5; font-weight: 500; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; line-height: 1.05; letter-spacing: .02em; text-transform: uppercase; }
+p { margin: 0 0 1rem; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 var(--gutter); }
+.gold { background: linear-gradient(170deg, #ffe39a 0%, #fcc052 38%, #d99a35 70%, #f6c566 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Foil buttons: the title's gold with its pink edge, corners notched like the cover's diamonds */
+.btn { display: inline-block; font-family: var(--display); font-weight: 700; font-size: .86rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--ink); padding: .85rem 1.3rem .8rem; background: linear-gradient(170deg, #ffe39a 0%, #fcc052 45%, #d99a35 100%); clip-path: polygon(9px 0, calc(100% - 9px) 0, 100% 9px, 100% calc(100% - 9px), calc(100% - 9px) 100%, 9px 100%, 0 calc(100% - 9px), 0 9px); box-shadow: inset 0 0 0 2px rgba(242,165,138,.85); transition: transform .15s; }
+.btn:hover, .btn:focus-visible { transform: translateY(-2px); }
+.btn.ghost { background: none; color: var(--gold); box-shadow: inset 0 0 0 1.5px var(--gold); }
+.btns { display: flex; flex-wrap: wrap; gap: .7rem .9rem; margin-top: 1.2rem; }
+.spark { display: inline-block; width: .8em; height: .8em; vertical-align: -.05em; }
+
+.strip { background: #000; color: var(--mute); font-family: var(--text); font-size: .92rem; text-align: center; padding: .5rem var(--gutter); line-height: 1.3; border-bottom: 1px solid #2a2f31; position: relative; z-index: 5; }
+
+/* ---------- Pinned hero: the full moon in the title wanes to its crescent ---------- */
+.hero { height: 380vh; position: relative; background: var(--ink); }
+.pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.stage { --sw: min(100vw, calc(84svh * .625)); position: absolute; width: var(--sw); height: calc(var(--sw) * 1.6); left: calc(50% - var(--sw) / 2); top: calc(50% - var(--sw) * .8 - 1.5rem); }
+.stage > * { position: absolute; transform-origin: 77% 56.6%; will-change: transform; backface-visibility: hidden; }
+.stage img { max-width: none; }
+.plate { left: 0; top: 0; width: 100%; height: auto; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%); }
+.cards { left: 12%; top: 15.83%; width: 76%; height: auto; }
+.title { left: 4%; top: 49.58%; width: 92%; height: auto; }
+.moonwrap { left: 66.667%; top: 50.15%; width: 20.667%; aspect-ratio: 1; }
+.glow { left: 56%; top: 38%; width: 42%; aspect-ratio: 1; background: radial-gradient(circle, rgba(252,192,82,.55) 0%, rgba(252,192,82,.18) 38%, rgba(252,192,82,0) 68%); opacity: 1; pointer-events: none; }
+.moonclip { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+.moonclip img { position: absolute; left: 21.13%; top: .65%; width: 97.4%; height: auto; will-change: transform; }
+.cres { left: 66.667%; top: 49.79%; width: 21.33%; height: auto; }
+.moon-all { position: absolute; inset: 0; transform-origin: 77% 56.6%; }
+.moon-all > * { position: absolute; }
+
+.scrim { position: absolute; left: 0; right: 0; height: 34%; pointer-events: none; z-index: 2; }
+.scrim.b { bottom: 0; background: linear-gradient(to top, rgba(18,22,23,.92), rgba(18,22,23,0)); }
+.cap { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); bottom: 9svh; text-align: center; opacity: 0; font-size: clamp(1.4rem, 5.6vw, 1.9rem); line-height: 1.25; font-style: italic; color: var(--cream); text-shadow: 0 2px 14px #000; pointer-events: none; }
+.cap b { font-style: normal; font-family: var(--display); font-weight: 700; letter-spacing: .04em; color: var(--gold); text-transform: uppercase; font-size: .78em; display: block; margin-bottom: .35rem; }
+.endpanel { position: absolute; z-index: 4; left: var(--gutter); right: var(--gutter); bottom: calc(env(safe-area-inset-bottom) + 3.4svh); text-align: center; opacity: 0; pointer-events: none; }
+.endpanel.on { pointer-events: auto; }
+.endpanel .kicker { font-family: var(--display); font-weight: 500; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); margin: 0 0 .65rem; }
+.endpanel .btns { justify-content: center; margin-top: 0; }
+.endpanel .btn { padding: .7rem 1rem .66rem; font-size: .76rem; }
+@media (min-width: 900px) {
+  .stage { --sw: min(46vw, calc(84svh * .625)); }
+  .cap { left: var(--gutter); right: auto; bottom: 13svh; width: min(26vw, 22rem); text-align: left; font-size: 1.95rem; }
+  .endpanel { left: auto; right: var(--gutter); bottom: auto; top: 50%; width: min(28vw, 26rem); text-align: left; transform: translateY(-50%); }
+  .endpanel .kicker { font-size: .8rem; margin-bottom: 1rem; }
+  .endpanel p.big { font-size: 1.75rem; line-height: 1.25; margin-bottom: 1.4rem; font-style: italic; }
+  .endpanel .btns { justify-content: flex-start; }
+  .endpanel .btn { font-size: .8rem; padding: .8rem 1.1rem .75rem; }
+  .scrim { display: none; }
+}
+@media (max-width: 899px) { .endpanel p.big { display: none; } }
+
+/* ---------- Books: each row takes its cover's ground ---------- */
+.intro { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2rem, 5vw, 3rem); text-align: center; }
+.intro h2 { font-size: clamp(1.7rem, 5.6vw, 3rem); }
+.intro p { max-width: 36rem; margin: 1.2rem auto 0; color: var(--mute); font-size: 1.3rem; }
+.lattice { display: block; width: min(15rem, 60%); height: auto; margin: 2.4rem auto 0; }
+
+.book { padding: clamp(3rem, 8vw, 6rem) 0; position: relative; }
+.book .wrap { display: grid; gap: 2rem; align-items: center; }
+.book .cover { width: min(100%, 17rem); margin: 0 auto; box-shadow: 0 22px 40px rgba(0,0,0,.45); }
+.book h3 { font-size: clamp(1.6rem, 5.4vw, 2.6rem); margin-bottom: .35rem; }
+.book .tag { font-family: var(--display); font-size: .74rem; letter-spacing: .22em; color: var(--gold); text-transform: uppercase; margin: 0 0 1rem; font-weight: 500; }
+.book p.q { font-style: italic; font-size: 1.5rem; line-height: 1.3; }
+.b-purple { background: #211539; }
+.b-green { background: #143626; }
+.b-navy { background: #1f2d5e; }
+.b-pink { background: #c93d93; color: #fff; }
+.b-pink .tag { color: #ffe39a; }
+.b-pink .btn { background: #fff; color: #7a1655; box-shadow: inset 0 0 0 2px #ffc2e4; }
+.b-pink .btn.ghost { background: none; color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
+.b-pink h3 { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; text-transform: none; letter-spacing: 0; }
+.note { color: var(--mute); font-size: 1.1rem; margin-top: 1rem; }
+.b-pink .note { color: #ffd9ee; }
+@media (min-width: 820px) {
+  .book .wrap { grid-template-columns: 19rem 1fr; gap: 4rem; }
+  .book.flip .wrap { grid-template-columns: 1fr 19rem; }
+  .book.flip .cover { order: 2; }
+  .book .cover { width: 100%; }
+}
+
+/* ---------- The box ---------- */
+.box { padding: clamp(3.5rem, 9vw, 7rem) 0; background: var(--ink); text-align: center; position: relative; overflow: hidden; }
+.box h2 { font-size: clamp(1.7rem, 5.6vw, 3rem); }
+.box .cardsimg { width: min(100%, 31rem); margin: 0 auto 1.6rem; }
+.box p { max-width: 36rem; margin-left: auto; margin-right: auto; }
+.box .btns { justify-content: center; }
+
+/* ---------- Markets ---------- */
+.markets { padding: clamp(3.5rem, 9vw, 7rem) 0; }
+.markets h2 { font-size: clamp(1.7rem, 5.6vw, 3rem); margin-bottom: .6rem; }
+.markets .lead { color: var(--mute); max-width: 34rem; }
+.dates { list-style: none; margin: 2.2rem 0 0; padding: 0; border-top: 1.5px solid var(--gold); }
+.dates li { display: grid; grid-template-columns: 7.5rem 1fr; gap: .4rem 1.4rem; padding: 1.2rem 0 1.15rem; border-bottom: 1px solid #3a3f41; align-items: baseline; }
+.dates .d { font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: .06em; color: var(--gold); text-transform: uppercase; line-height: 1.2; }
+.dates .w { font-size: 1.4rem; line-height: 1.25; }
+.dates .w small { display: block; color: var(--mute); font-size: 1.05rem; margin-top: .15rem; }
+.dates li.past .d, .dates li.past .w { opacity: .55; }
+.dates h3 { font-family: var(--display); font-size: .78rem; letter-spacing: .2em; color: var(--mute); margin: 2rem 0 0; font-weight: 500; }
+
+/* ---------- About ---------- */
+.about { padding: clamp(3rem, 8vw, 6rem) 0 clamp(4rem, 9vw, 7rem); background: var(--ink2); }
+.about .wrap { max-width: 44rem; }
+.about h2 { font-size: clamp(1.7rem, 5.6vw, 3rem); margin-bottom: 1.4rem; }
+.about p { font-size: 1.45rem; line-height: 1.45; }
+.about .small { color: var(--mute); font-size: 1.15rem; }
+.links { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin-top: 1.6rem; font-family: var(--display); font-size: .82rem; letter-spacing: .16em; text-transform: uppercase; }
+.links a { color: var(--gold); text-underline-offset: .3em; }
+
+footer { background: #000; color: var(--mute); text-align: center; padding: 1.6rem var(--gutter) 2rem; font-size: 1rem; }
+
+/* Reduced motion: no pin, the end state */
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto; }
+  .pin { height: 100svh; }
+  .cap { display: none; }
+  .endpanel { opacity: 1; pointer-events: auto; }
+  .glow { opacity: 0; }
+  .moonclip img { transform: translateX(96%); }
+  .pin { height: calc(100svh - 2.8rem); }
+}
+html:not(.js) .hero { height: auto; }
+html:not(.js) .endpanel { opacity: 1; pointer-events: auto; }
+html:not(.js) .glow { opacity: 0; }
+html:not(.js) .moonclip img { transform: translateX(96%); }
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Jenn Lessmann. Not their official site.</div>
+
+<header class="hero" id="hero">
+  <div class="pin" id="pin">
+    <h1 class="sr" style="position:absolute;left:-9999px;top:0">Jenn Lessmann: Unmagical</h1>
+    <div class="stage" id="stage">
+      <img class="plate" id="plate" src="img/plate.jpg" width="1500" height="2400" alt="">
+      <img class="cards" id="cards" src="img/cards.png" width="1140" height="880" alt="Three tarot cards fanned behind a gold coffee cup, from the Unmagical cover">
+      <div class="glow" id="glow"></div>
+      <img class="title" id="title" src="img/title.png" width="1380" height="340" alt="UNMAGICAL, with the C drawn as a crescent moon">
+      <div class="moon-all" id="moonall">
+        <div class="moonwrap"><div class="moonclip"><img id="bite" src="img/bite.png" width="302" height="302" alt=""></div></div>
+        <img class="cres" src="img/crescent.png" width="320" height="325" alt="">
+      </div>
+    </div>
+    <div class="scrim b"></div>
+    <p class="cap" id="cap1">Descended from gifted witches with no power of her own,</p>
+    <p class="cap" id="cap2">Cate thought she'd left home and magic behind.</p>
+    <p class="cap" id="cap3">These days, she's a stressed college student and an underpaid barista.</p>
+    <div class="endpanel" id="end">
+      <p class="kicker">Book one of Cate Corey's Unmagical Life</p>
+      <p class="big">The Gate that hides Cate Corey's magical hometown from the rest of the world is about to close.</p>
+      <div class="btns">
+        <a class="btn" href="https://shop.jennlessmann.com/en-usd/products/unmagical-ebook">Buy direct</a>
+        <a class="btn ghost" href="http://www.books2read.com/unmagical">Other retailers</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="intro" aria-labelledby="series">
+  <div class="wrap">
+    <h2 id="series" class="gold">Cate Corey's Unmagical Life</h2>
+    <p>More snark, less dark. Then a companion novel, and a new series for readers who miss the Scoobies.</p>
+    <svg class="lattice" viewBox="0 0 240 40" aria-hidden="true"><g fill="none" stroke="#fcc052" stroke-width="1.6" stroke-linecap="round"><path d="M4 36 L96 4"/><path d="M144 36 L236 4"/><path d="M20 4 L112 36"/><path d="M128 4 L220 36"/></g><g fill="#fcc052"><path d="M120 6 L123 17 L134 20 L123 23 L120 34 L117 23 L106 20 L117 17Z"/></g></svg>
+  </div>
+</section>
+
+<section class="book b-purple flip" aria-labelledby="b2">
+  <div class="wrap">
+    <img class="cover" src="img/unforgivable.jpg" width="640" height="1024" alt="Cover of Unforgivable: a skull, candles and a potion bottle on purple, with a gold dagger">
+    <div>
+      <p class="tag">Book two</p>
+      <h3 id="b2" class="gold">Unforgivable</h3>
+      <p class="q">How do you protect yourself from someone else's fear?</p>
+      <p>When Cate Corey returns to college after spending Spring Break in her enchanted hometown, she's tasked with tracking down a wayward witch. Finding the girl is easy. The real trick will be stopping her from revealing their secrets to the world.</p>
+      <div class="btns"><a class="btn" href="https://shop.jennlessmann.com/products/unforgivable-ebook">Buy direct</a><a class="btn ghost" href="https://books2read.com/unmagical2">Other retailers</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="book b-green" aria-labelledby="b3">
+  <div class="wrap">
+    <img class="cover" src="img/unbelievable.jpg" width="640" height="1022" alt="Cover of Unbelievable: an open grimoire and a gold teacup on deep green, with a gold key">
+    <div>
+      <p class="tag">Book three</p>
+      <h3 id="b3" class="gold">Unbelievable</h3>
+      <p class="q">What good is saving everyone if you lose yourself in the process?</p>
+      <p>College senior (and undercover witch) Cate Corey might be the world's only hope when a casual book club discovers a real grimoire. With the help of a vegan vampire, she must find a way to return the book to the library's restricted section, before it's too late.</p>
+      <div class="btns"><a class="btn" href="https://shop.jennlessmann.com/products/unbelievable-ebook">Buy direct</a><a class="btn ghost" href="http://www.books2read.com/unmagical3">Other retailers</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="book b-navy flip" aria-labelledby="b4">
+  <div class="wrap">
+    <img class="cover" src="img/healer.jpg" width="640" height="960" alt="Cover of The Healer's Guide to Managing Telepathy: a navy and gold frame with a lantern, a pocket watch and headphones">
+    <div>
+      <p class="tag">A Queen's Creek side quest</p>
+      <h3 id="b4" class="gold">The Healer's Guide to Managing Telepathy</h3>
+      <p class="q">A cozy, time-bending romance about trust, magic, and the lengths we'll go to for love.</p>
+      <p>An empath burned out from carrying everyone else's emotions. A telepath whose intrusive thoughts come from other people's minds. Their connection is inconvenient, ill-timed, and unavoidable. It's also their only chance.</p>
+      <p class="note">Best read as a companion novel after the first three.</p>
+      <div class="btns"><a class="btn" href="https://shop.jennlessmann.com/en-usd/products/the-healers-guide-to-managing-telepathy">Buy direct</a><a class="btn ghost" href="https://books2read.com/HealersGuide">Other retailers</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="book b-pink" aria-labelledby="b5">
+  <div class="wrap">
+    <img class="cover" src="img/delancy.jpg" width="640" height="989" alt="Cover of The Delancy Legends: The Hunter's Code, two pink-haired hunters and a corgi on a pink comic-print ground">
+    <div>
+      <p class="tag">New, October 2026</p>
+      <h3 id="b5">The Delancy Legends: The Hunter's Code</h3>
+      <p class="q">Monsters are real. Secrets are worse.</p>
+      <p>On her YouTube channel, Dee Delancy tells monster stories while doing her makeup. Her subscribers love it. They have no idea how close they are to the truth. A YA urban fantasy for anyone who still hasn't forgiven Supernatural for Ellen and Jo Harvelle.</p>
+      <div class="btns"><a class="btn" href="https://shop.jennlessmann.com/products/the-delancy-legends-ebook">Buy direct</a><a class="btn ghost" href="https://forms.gle/97BqBtdY2yhC4PpV9">Apply for an ARC</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="box" aria-labelledby="bx">
+  <div class="wrap">
+    <img class="cardsimg" src="img/cards.png" width="1140" height="880" alt="The tarot cards from the Unmagical cover" loading="lazy">
+    <h2 id="bx" class="gold">The Unmagical Book Box</h2>
+    <p>More Snark, Less Dark: a Practical Magic x Veronica Mars cozy witchy mystery collector's edition, with custom illustrations and foiled tarot cards. It ran on Kickstarter through October 2026.</p>
+    <div class="btns"><a class="btn" href="https://www.kickstarter.com/projects/jennlessmann/more-snark-less-dark-the-unmagical-special-edition-book-box">See the campaign</a></div>
+  </div>
+</section>
+
+<section class="markets" aria-labelledby="mk">
+  <div class="wrap">
+    <h2 id="mk" class="gold">Find her in person</h2>
+    <p class="lead">Jenn sells at book festivals and witch markets. This is where the next ones are.</p>
+    <ul class="dates">
+      <li><span class="d">21 Nov 2026</span><span class="w">Wine and Whimsy Renaissance Faire</span></li>
+      <li><span class="d">4 to 6 Jun 2027</span><span class="w"><a href="https://www.imaginariumbookfestival.com/">Imaginarium Book Festival</a><small>Washington, DC</small></span></li>
+      <li class="past"><span class="d">24 Oct 2026</span><span class="w">Crozet Book Fest</span></li>
+      <li class="past"><span class="d">3 Oct 2026</span><span class="w"><a href="https://fredbookfest.com/">Fredericksburg Independent Book Festival</a></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="about" aria-labelledby="ab">
+  <div class="wrap">
+    <h2 id="ab" class="gold">About Jenn</h2>
+    <p>Jenn Lessmann writes more snark, less dark urban cozies and witchy mysteries.</p>
+    <p>A former barista, stage manager, and high school English teacher with advanced degrees from impressive colleges, she continues to drink excessive amounts of caffeine, stay up later than is absolutely necessary, and read three or four books at a time.</p>
+    <p class="small">Questions, comments, snide remarks? She suggests a summoning circle. Chocolate, caffeine, fan art and witchy crafts help.</p>
+    <div class="links">
+      <a href="https://www.instagram.com/jennlessmannauthor/">Instagram</a>
+      <a href="https://subscribepage.io/S8585X">Newsletter</a>
+      <a href="https://jennlessmann.com/reading-order/">Reading order</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>A mockup made by Sparsh Saini for Jenn Lessmann. Not affiliated, not live.</footer>
+
+<script>
+(function () {
+  var hero = document.getElementById('hero'), stage = document.getElementById('stage');
+  var plate = document.getElementById('plate'), cards = document.getElementById('cards'), title = document.getElementById('title');
+  var moonall = document.getElementById('moonall'), glow = document.getElementById('glow'), bite = document.getElementById('bite');
+  var caps = [document.getElementById('cap1'), document.getElementById('cap2'), document.getElementById('cap3')];
+  var end = document.getElementById('end');
+  var reduce = window.matchMedia('(prefers-color-scheme: x)').matches; // placeholder, replaced below
+  reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { return; }
+  var K0 = 2.3, dx = 0, dy = 0, top = 0, span = 1, vh = innerHeight, ticking = false;
+  function measure() {
+    vh = innerHeight;
+    var r = stage.getBoundingClientRect();           // stage itself never carries a transform
+    var mx = r.left + r.width * 0.77, my = r.top + r.height * 0.566;
+    dx = innerWidth / 2 - mx; dy = vh * (innerWidth > 899 ? .5 : .46) - my;
+    top = hero.getBoundingClientRect().top + scrollY; span = hero.offsetHeight - vh;
+  }
+  function sm(a, b, x) { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  var last = -1;
+  function frame() {
+    ticking = false;
+    var p = Math.min(1, Math.max(0, (scrollY - top) / span));
+    if (p === last) return; last = p;
+    var e = sm(0, 0.9, p);                           // camera pull back
+    var k = lerp(K0, 1, e), t = 1 - e;               // t: 1 at start, 0 at rest
+    var tx = dx * t, ty = dy * t;
+    var sPlate = 1 + (k - 1) * 0.5, sCards = 1 + (k - 1) * 1.55;
+    plate.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0) scale(' + sPlate + ')';
+    cards.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0) scale(' + sCards + ')';
+    var camT = 'translate3d(' + tx + 'px,' + ty + 'px,0) scale(' + k + ')';
+    title.style.transform = camT; moonall.style.transform = camT; glow.style.transform = camT;
+    var w = sm(0.14, 0.78, p);                       // the wane
+    bite.style.transform = 'translate3d(' + (w * 96) + '%,0,0)';
+    glow.style.opacity = (1 - sm(0.1, 0.8, p)).toFixed(3);
+    var o1 = sm(0.03, 0.1, p) * (1 - sm(0.24, 0.3, p)), o2 = sm(0.32, 0.38, p) * (1 - sm(0.5, 0.56, p)), o3 = sm(0.58, 0.64, p) * (1 - sm(0.76, 0.82, p));
+    caps[0].style.opacity = o1.toFixed(3); caps[1].style.opacity = o2.toFixed(3); caps[2].style.opacity = o3.toFixed(3);
+    var oe = sm(0.88, 0.97, p); end.style.opacity = oe.toFixed(3); end.classList.toggle('on', oe > 0.5);
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  measure(); frame();
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', function () { measure(); last = -1; frame(); });
+  addEventListener('load', function () { measure(); last = -1; frame(); });
+})();
+</script>
+</body>
+</html>
